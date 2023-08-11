@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SrDevTest.App">
+    <Application.Resources>
+        <ResourceDictionary>
+               <OnPlatform x:Key="LargeSize" x:TypeArguments="x:Double">
+                <On Platform="iOS" Value="16" />
+                <On Platform="Default" Value="18" />
+            </OnPlatform>
+                <Style x:Key="EntryStyle" TargetType="{x:Type Entry}">
+                <Setter Property="FontSize" Value="{StaticResource LargeSize}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Opacity" Value="0.6" />
+                <Style.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                        <Setter Property="Opacity" Value="1" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+        
+    </Application.Resources>
+</Application>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:navButton="clr-namespace:SrDevTest.Control"
+    Title="Page one"
+    x:Class="SrDevTest.Pages.PageOne">
+    <ContentPage.Resources>
+              <Style
+                ApplyToDerivedTypes="True"
+                CanCascade="True"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="Medium" />
+                  <Setter Property="FontAttributes" Value="Bold"></Setter>
+            </Style>
+
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid
+            RowDefinitions="2*,2*,6*"
+            ColumnDefinitions="*,*"
+            Margin="30,0,30,30"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Code"
+                 HorizontalOptions="StartAndExpand"
+                VerticalOptions="EndAndExpand">
+            </Label>
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{Binding Code}"
+                 HorizontalOptions="CenterAndExpand"
+                VerticalOptions="EndAndExpand">
+            </Label>
+             <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Network Name"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="StartAndExpand">
+            </Label>
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Text="{Binding NetworkName}"
+                  HorizontalOptions="CenterAndExpand"
+                VerticalOptions="StartAndExpand">
+            </Label>
+            <navButton:NavigationButton
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                TitleText="Next"
+                Command="{Binding nextPageCommand}">
+            </navButton:NavigationButton>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

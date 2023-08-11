@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="SrDevTest.Control.NavigationButton">
+    <ContentView.Content>
+           <Button
+               x:Name="NavBtn"
+                Text="Next"
+                TextColor="White"
+                CornerRadius="15"
+                HeightRequest="50"
+                WidthRequest="300"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="StartAndExpand"
+                BackgroundColor="#2196F3"
+               Command="{Binding Command}"
+               />
+    </ContentView.Content>
+</ContentView>
+

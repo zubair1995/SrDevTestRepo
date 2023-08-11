@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+     xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:navButton="clr-namespace:SrDevTest.Control"
+     xmlns:local="clr-namespace:SrDevTest.Converter"
+     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Class="SrDevTest.Pages.PageTwo">
+    <ContentPage.Resources>
+    <local:TextChangedEventArgsConverter x:Key="TextChangedEventArgsConverter" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid
+            RowDefinitions="*,*,8*"
+            ColumnDefinitions="*,*"
+            Margin="30,0,30,30"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+             <Label
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                Text="Enter code to play"
+                 HorizontalOptions="StartAndExpand"
+                VerticalOptions="EndAndExpand">
+            </Label>
+            <Entry Grid.Row="1" Grid.ColumnSpan="2" MaxLength="4">
+                <Entry.Behaviors>
+                    <xct:EventToCommandBehavior
+                        EventName="TextChanged"
+                        Command="{Binding TextChangeCommand,Mode=TwoWay}"
+                        EventArgsConverter="{StaticResource TextChangedEventArgsConverter}">
+                    </xct:EventToCommandBehavior>
+                </Entry.Behaviors>
+            </Entry>
+                <Label
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Text="{Binding ValidationErrorMessage,Mode=TwoWay}"
+                TextColor="Red"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="StartAndExpand">
+            </Label>
+            <navButton:NavigationButton
+                Grid.Row="3"
+                Grid.Column="0"
+                TitleText="Back"
+                Command="{Binding PreviousPageCommand}">
+            </navButton:NavigationButton>
+                <navButton:NavigationButton
+                Grid.Row="3"
+                Grid.Column="1"
+                TitleText="Submit"
+                VerticalOptions="StartAndExpand"
+                Command="{Binding SubmitCommand}">
+            </navButton:NavigationButton>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+
